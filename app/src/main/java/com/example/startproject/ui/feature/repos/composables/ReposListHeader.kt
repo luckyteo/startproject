@@ -27,6 +27,7 @@ import com.example.startproject.R
 import com.example.startproject.common.buildUrlIntent
 import com.example.startproject.data.model.UserDetail
 import com.example.startproject.data.model.buildUserDetailPreview
+import com.example.startproject.ui.feature.common.RoundedImage
 import com.example.startproject.ui.theme.OnSurfaceBackgroundAlpha
 import com.example.startproject.ui.theme.OnSurfaceTextAlpha
 import java.util.Locale
@@ -36,7 +37,7 @@ fun ReposListHeader(userDetail: UserDetail) {
     val paddingMedium = dimensionResource(id = R.dimen.padding_medium)
     val paddingXSmall = dimensionResource(id = R.dimen.padding_xsmall)
 
-    Column{
+    Column {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -75,9 +76,18 @@ fun ScoreSession(userDetail: UserDetail) {
                 .padding(end = dimensionResource(id = R.dimen.padding_medium))
         )
 
-        ScoreItem(count = userDetail.publicRepos, description = stringResource(R.string.repos_score_title))
-        ScoreItem(count = userDetail.followers, description = stringResource(R.string.followers_score_title))
-        ScoreItem(count = userDetail.following, description = stringResource(R.string.following_score_title))
+        ScoreItem(
+            count = userDetail.publicRepos,
+            description = stringResource(R.string.repos_score_title)
+        )
+        ScoreItem(
+            count = userDetail.followers,
+            description = stringResource(R.string.followers_score_title)
+        )
+        ScoreItem(
+            count = userDetail.following,
+            description = stringResource(R.string.following_score_title)
+        )
     }
 }
 
@@ -99,8 +109,8 @@ fun UserDetailSession(userDetail: UserDetail) {
 fun ButtonsSession(userDetail: UserDetail) {
     // See all button
     val context = LocalContext.current
-    val profileIntent = remember{ buildUrlIntent(userDetail.htmlUrl) }
-    val blogIntent = remember{ buildUrlIntent(userDetail.blogUrl) }
+    val profileIntent = remember { buildUrlIntent(userDetail.htmlUrl) }
+    val blogIntent = remember { buildUrlIntent(userDetail.blogUrl) }
 
     // View Blog
     val blogNotFoundDialog = remember { mutableStateOf(false) }
@@ -136,9 +146,11 @@ fun ButtonsSession(userDetail: UserDetail) {
                 Text(text = stringResource(R.string.blog_not_found_dialog_text))
             },
             confirmButton = {
-                Text(text = stringResource(R.string.blog_not_found_dialog_confirm_button).uppercase(
-                    Locale.getDefault()
-                ))
+                Text(
+                    text = stringResource(R.string.blog_not_found_dialog_confirm_button).uppercase(
+                        Locale.getDefault()
+                    )
+                )
             })
     }
 }

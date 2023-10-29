@@ -76,7 +76,7 @@ android {
         buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Dependencies.Android.Version.compose
+        kotlinCompilerExtensionVersion = Dependencies.Android.Version.composeCompiler
     }
     packaging {
         resources {
@@ -96,6 +96,7 @@ dependencies {
 
     implementation(Dependencies.Android.composeUi)
     implementation(Dependencies.Android.composeMaterial3)
+    implementation(Dependencies.Android.composeMaterial3WindowSize)
     implementation(Dependencies.Android.composeMaterialIconsExtended)
     implementation(platform(Dependencies.Android.composeBom))
     implementation(Dependencies.Android.composeUiTooling)

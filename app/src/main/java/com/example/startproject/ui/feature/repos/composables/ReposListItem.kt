@@ -40,7 +40,7 @@ fun ReposListItem(repo: Repo) {
     val paddingMedium = dimensionResource(id = R.dimen.padding_medium)
 
     val context = LocalContext.current
-    val visitRepoIntent = remember{ buildUrlIntent(repo.htmlUrl) }
+    val visitRepoIntent = remember { buildUrlIntent(repo.htmlUrl) }
 
     Column(
         modifier = Modifier

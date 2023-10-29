@@ -17,11 +17,11 @@ fun AppNavigation() {
         navController = navController,
         startDestination = Navigation.Routes.USERS
     ) {
-//        composable(
-//            route = Navigation.Routes.USERS
-//        ) {
-//            UsersScreenDestination(navController)
-//        }
+        composable(
+            route = Navigation.Routes.USERS
+        ) {
+            UsersScreenDestination(navController)
+        }
 
         composable(
             route = Navigation.Routes.REPOS,
@@ -29,9 +29,10 @@ fun AppNavigation() {
                 type = NavType.StringType
             })
         ) { backStackEntry ->
-            val userId = requireNotNull(backStackEntry.arguments?.getString(USER_ID)) { "User id is required as an argument" }
+            val userId =
+                requireNotNull(backStackEntry.arguments?.getString(USER_ID)) { "User id is required as an argument" }
             ReposScreenDestination(
-                UserId = userId,
+                userId = userId,
                 navController = navController
             )
         }

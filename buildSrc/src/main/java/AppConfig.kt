@@ -9,6 +9,6 @@ object AppConfig {
     const val versionName = "1.0.0"
     const val androidTestInstrumentation = "androidx.test.runner.AndroidJUnitRunner"
 
-    val javaJvmTarget = JavaVersion.VERSION_11.toString()
-    val javaCompatibility = JavaVersion.VERSION_11
+    val javaJvmTarget = JavaVersion.VERSION_17.toString()
+    val javaCompatibility = JavaVersion.VERSION_17
 }

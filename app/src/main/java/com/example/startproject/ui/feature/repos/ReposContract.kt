@@ -2,12 +2,12 @@ package com.example.startproject.ui.feature.repos
 
 import com.example.startproject.data.model.Repo
 import com.example.startproject.data.model.UserDetail
-import com.example.startproject.ui.base.UiEffect
-import com.example.startproject.ui.base.UiEvent
-import com.example.startproject.ui.base.UiState
+import com.example.startproject.ui.base.ViewEvent
+import com.example.startproject.ui.base.ViewSideEffect
+import com.example.startproject.ui.base.ViewState
 
 class ReposContract {
-    sealed class Event : UiEvent {
+    sealed class Event : ViewEvent {
         object Retry : Event()
         object BackButtonClicked : Event()
     }
@@ -18,9 +18,9 @@ class ReposContract {
         val isUserLoading: Boolean,
         val isReposLoading: Boolean,
         val isError: Boolean,
-    ) : UiState
+    ) : ViewState
 
-    sealed class Effect : UiEffect {
+    sealed class Effect : ViewSideEffect {
         sealed class Navigation : Effect() {
             object Back : Navigation()
         }

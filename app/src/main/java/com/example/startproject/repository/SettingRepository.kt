@@ -31,7 +31,8 @@ class SettingRepository {
     fun saveSession(session: String?) = pref.edit().putString(KEY_SESSION, session).apply()
 
     fun loadTrustedTerminalId(): String? = pref.getString(KEY_TRUSTED_TERMINAL_ID, null)
-    fun saveTrustedTerminalId(id: String?) = pref.edit().putString(KEY_TRUSTED_TERMINAL_ID, id).apply()
+    fun saveTrustedTerminalId(id: String?) =
+        pref.edit().putString(KEY_TRUSTED_TERMINAL_ID, id).apply()
 
     fun loadFcmToken(): String? = pref.getString(KEY_FCM_TOKEN, null)
     fun saveFcmToken(token: String?) = pref.edit().putString(KEY_FCM_TOKEN, token).apply()
@@ -49,9 +50,10 @@ class SettingRepository {
     //-------------------------------------------------------------------------
     fun isSendCardNo(cardNo: String): Boolean {
         val set = pref.getStringSet(KEY_SEND_CARD_NO, null) ?: return false
-        if (set.isEmpty())   return false
+        if (set.isEmpty()) return false
         return set.contains(cardNo)
     }
+
     fun saveSendCardNo(cardNo: String) {
         var cards = pref.getStringSet(KEY_SEND_CARD_NO, mutableSetOf())?.toMutableSet()
         if (cards == null) cards = mutableSetOf()
@@ -61,7 +63,8 @@ class SettingRepository {
 
     //-------------------------------------------------------------------------
     fun loadMessageUpdateDate(): Long = pref.getLong(KEY_MESSAGE_UPDATE_DATE, 0L)
-    fun saveMessageUpdateDate(date: Long) = pref.edit().putLong(KEY_MESSAGE_UPDATE_DATE, date).apply()
+    fun saveMessageUpdateDate(date: Long) =
+        pref.edit().putLong(KEY_MESSAGE_UPDATE_DATE, date).apply()
 
     //-------------------------------------------------------------------------
     fun loadReviewDate(): Long = pref.getLong(KEY_REVIEW, 0L)

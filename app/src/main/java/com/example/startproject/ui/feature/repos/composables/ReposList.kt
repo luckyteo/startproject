@@ -11,10 +11,11 @@ import com.example.startproject.data.model.RepoPreview
 
 @Composable
 fun ReposList(
+    modifier: Modifier = Modifier,
     header: @Composable () -> Unit,
     reposList: List<Repo>,
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = modifier.fillMaxSize()) {
         LazyColumn {
             item { header() }
             items(count = reposList.size) { position ->

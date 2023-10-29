@@ -22,6 +22,7 @@ object Dependencies {
             const val appCompat = "1.6.1"
             const val activityCompose = "1.8.0"
             const val compose = "1.5.4"
+            const val composeCompiler = "1.5.3"
             const val material3 = "1.1.2"
             const val lifecycle = "2.6.2"
             const val lifecycleExtensions = "2.2.0"
@@ -39,6 +40,7 @@ object Dependencies {
         const val composeUiTooling = "androidx.compose.ui:ui-tooling:${Version.compose}"
         const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Version.compose}"
         const val composeMaterial3 = "androidx.compose.material3:material3:${Version.material3}"
+        const val composeMaterial3WindowSize = "androidx.compose.material3:material3-window-size-class:${Version.material3}"
         const val composeMaterialIconsExtended = "androidx.compose.material:material-icons-extended:${Version.compose}"
 
         // Lifecycle

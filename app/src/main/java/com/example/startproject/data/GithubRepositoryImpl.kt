@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 class GithubRepositoryImpl(
     private val githubApi: GithubApi,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-): GithubRepository {
+) : GithubRepository {
 
     override suspend fun getUsers(): Result<List<User>> = makeApiCall(dispatcher) {
         githubApi.getUsers()

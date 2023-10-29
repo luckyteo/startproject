@@ -1,6 +1,5 @@
 package com.example.startproject.ui.feature.repos.composables
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
@@ -39,16 +38,36 @@ fun ReposScreen(
     }
 
     Scaffold(
-        topBar = { ReposTopBar {
-            onEventSent(ReposContract.Event.BackButtonClicked)
-        } },
-        content = { innerPadding: PaddingValues ->
+        topBar = {
+            ReposTopBar {
+                onEventSent(ReposContract.Event.BackButtonClicked)
+            }
+        },
+        content = { innerPadding ->
+            Text(
+                text = "Body content",
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize()
+                    .wrapContentSize()
+            )
             when {
-                state.isUserLoading || state.isReposLoading -> Progress()
-                state.isError -> NetworkError { onEventSent(ReposContract.Event.Retry) }
+                state.isUserLoading || state.isReposLoading -> Progress(
+                    modifier = Modifier.padding(
+                        innerPadding
+                    )
+                )
+
+                state.isError -> NetworkError(modifier = Modifier.padding(innerPadding)) {
+                    onEventSent(
+                        ReposContract.Event.Retry
+                    )
+                }
+
                 else -> {
                     state.user?.let { user ->
                         ReposList(
+                            modifier = Modifier.padding(innerPadding),
                             header = { ReposListHeader(userDetail = user) },
                             reposList = state.reposList
                         )
